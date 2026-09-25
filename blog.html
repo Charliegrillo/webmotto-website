@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SEO, Desarrollo Web, E-commerce y Marketing | Agencia Web Studio</title>
+    <meta name="description" content="Guías prácticas de SEO, desarrollo web, e-commerce, diseño UX, apps móviles y marketing digital. 25 artículos de especialistas con más de 15 años de experiencia.">
+    <link rel="canonical" href="https://www.webmotto.com/blog">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f59e0b">
+
+    <meta property="og:title" content="Blog de Agencia Web Studio">
+    <meta property="og:description" content="Artículos sobre SEO, web, e-commerce, UX, apps y marketing para hacer crecer tu negocio digital.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.webmotto.com/blog">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="Blog Agencia Web Studio" href="/blog.xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog de Agencia Web Studio",
+      "url": "https://www.webmotto.com/blog",
+      "description": "Guías de SEO, desarrollo web, e-commerce, diseño UX, apps móviles y marketing digital.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Agencia Web Studio",
+        "url": "https://www.webmotto.com"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- @include partials/header.html -->
+
+    <main id="contenido">
+
+        <section class="pt-28 pb-10 lg:pt-40 lg:pb-20 bg-slate-950 text-white relative" aria-labelledby="blog-title">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider border border-brand-500/30 mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-globe"/></svg>
+                    Recursos y guías
+                </p>
+                <h1 id="blog-title" class="text-3xl sm:text-4xl lg:text-5xl font-black">
+                    Blog de <span class="text-gradient-gold">Agencia Web Studio</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg mt-6">
+                    SEO, desarrollo web, e-commerce, diseño UX, apps y marketing digital: artículos prácticos de nuestro equipo para tomar mejores decisiones digitales.
+                </p>
+            </div>
+        </section>
+
+        <section id="blog-results" class="pb-10 lg:pb-28" aria-label="Listado de artículos">
+            <!-- Toolbar sticky: barra opaca a ancho completo bajo el header -->
+            <div class="sticky top-20 z-20 bg-white border-b border-slate-200 shadow-[0_8px_24px_-8px_rgba(15,23,42,0.12)]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="relative flex-1 min-w-0">
+                            <label for="blog-search" class="sr-only">Buscar artículos</label>
+                            <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="search" id="blog-search" autocomplete="off" placeholder="Buscar artículos…"
+                                   class="w-full pl-11 pr-3 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+                        </div>
+
+                        <div class="flex items-center gap-2 shrink-0" role="group" aria-label="Cambiar vista">
+                            <button type="button" id="view-grid" aria-pressed="true" aria-label="Vista de cuadrícula"
+                                    class="h-11 w-11 sm:w-auto sm:px-3.5 rounded-xl bg-brand-500 text-slate-950 font-bold text-sm transition-all flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                            </button>
+                            <button type="button" id="view-list" aria-pressed="false" aria-label="Vista de lista"
+                                    class="h-11 w-11 sm:w-auto sm:px-3.5 rounded-xl bg-slate-200 text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2 hover:bg-slate-300">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="relative mt-4">
+                        <div id="blog-cats" class="flex flex-nowrap gap-2 -mx-1 px-1 overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth" role="group" aria-label="Filtrar por categoría"></div>
+                        <button type="button" id="blog-cats-hint" class="absolute left-auto right-0 top-0 bottom-3 w-16 bg-gradient-to-l from-white via-white/95 to-transparent flex items-start justify-end cursor-pointer pt-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-r-xl" aria-label="Desplazar categorías a la derecha">
+                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/65 text-white shadow-sm">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <p id="blog-count" class="text-sm font-semibold text-slate-500 mb-5" aria-live="polite"></p>
+
+                <div id="blog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+                <div id="blog-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+                    <p class="text-lg font-extrabold text-slate-900 mb-2">Sin artículos que coincidan</p>
+                    <p class="text-slate-600 mb-6">Prueba con otra palabra o cambia de categoría.</p>
+                    <button type="button" id="blog-reset" class="px-5 py-2.5 rounded-xl bg-brand-500 text-slate-950 font-bold text-sm hover:bg-brand-600 transition-colors">Limpiar filtros</button>
+                </div>
+
+                <nav id="blog-pagination" class="hidden flex flex-wrap items-center justify-center gap-2 mt-12" aria-label="Paginación del blog"></nav>
+            </div>
+        </section>
+
+        <section class="py-10 lg:py-16 bg-slate-950 text-white reveal-on-scroll" aria-label="Llamada a la acción">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-4">¿Listo para aplicar lo que leíste?</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mb-8">Diseñamos y desarrollamos webs, e-commerce, apps y SaaS con foco en SEO y conversión.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/cotizador" class="px-8 py-4 rounded-xl bg-brand-500 text-slate-950 font-extrabold hover:bg-brand-600 transition-colors">Cotizar proyecto</a>
+                    <a href="/portafolio" class="px-8 py-4 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 font-bold transition-all">Ver portafolio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- @include partials/footer.html -->
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/blog.js"></script>
+</body>
+</html>

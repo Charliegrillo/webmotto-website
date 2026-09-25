@@ -1,0 +1,20 @@
+{
+  "name": "webmotto-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sitio multipágina de Agencia Web Studio - Vite + Tailwind CSS sin framework",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "resend": "^6.29.0"
+  }
+}

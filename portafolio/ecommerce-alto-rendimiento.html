@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de E-commerce de Alto Rendimiento con UX Avanzada | Caso de Estudio</title>
+    <meta name="description" content="Caso de estudio: e-commerce de alto rendimiento con UX avanzada, Core Web Vitals 95+, checkout optimizado, filtros instantáneos y pasarelas de pago multi-moneda.">
+    <link rel="canonical" href="https://www.webmotto.com/portafolio/ecommerce-alto-rendimiento">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="keywords" content="desarrollo e-commerce, tienda online de alto rendimiento, Core Web Vitals, checkout optimizado, pasarelas multi-moneda, CRO, Shopify, WooCommerce">
+
+    <meta property="og:title" content="Caso de Estudio: E-commerce de Alto Rendimiento con UX Avanzada">
+    <meta property="og:description" content="Arquitectura e-commerce orientada a conversión: filtros instantáneos, checkout en pasos limpios, inventario en tiempo real y Edge Caching.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.webmotto.com/portafolio/ecommerce-alto-rendimiento">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.webmotto.com/portafolio/ecommerce-alto-rendimiento"},"headline":"Desarrollo de E-commerce de Alto Rendimiento con UX Avanzada y Pasarelas Multi-moneda","description":"Caso de estudio: e-commerce de alto rendimiento con UX avanzada, Core Web Vitals 95+, checkout optimizado, filtros instantáneos y pasarelas de pago multi-moneda.","author":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com"},"publisher":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com","logo":{"@type":"ImageObject","url":"https://www.webmotto.com/favicon.svg"}},"keywords":"e-commerce de alto rendimiento, Core Web Vitals, checkout optimizado, pasarelas multi-moneda, CRO","inLanguage":"es","about":["Desarrollo E-commerce","Optimización de Conversión","Rendimiento Web"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.webmotto.com/"},{"@type":"ListItem","position":2,"name":"Portafolio","item":"https://www.webmotto.com/portafolio"},{"@type":"ListItem","position":3,"name":"E-commerce de Alto Rendimiento","item":"https://www.webmotto.com/portafolio/ecommerce-alto-rendimiento"}]}</script>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- @include partials/header.html -->
+
+    <main id="contenido">
+
+        <!-- Hero del caso de estudio -->
+        <section class="pt-28 pb-14 lg:pt-40 lg:pb-24 bg-slate-950 text-white relative overflow-hidden" aria-labelledby="cs-title">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                <nav aria-label="Migas de pan" class="mb-8 text-sm font-semibold text-slate-500">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li><a href="/" class="hover:text-brand-500">Inicio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li><a href="/portafolio" class="hover:text-brand-500">Portafolio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li class="text-slate-300">E-commerce de Alto Rendimiento</li>
+                    </ol>
+                </nav>
+
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider border border-brand-500/30 mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-cart"/></svg>
+                    Caso de Estudio · Retail B2C / B2B
+                </p>
+
+                <h1 id="cs-title" class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
+                    Desarrollo de E-commerce de Alto Rendimiento con <span class="text-gradient-gold">UX Avanzada</span> y Pasarelas Multi-moneda
+                </h1>
+
+                <p class="text-slate-400 text-base sm:text-lg mt-6 max-w-3xl">
+                    Ingeniería de tiendas virtuales orientadas a maximizar la conversión (CRO), optimizar los Core Web Vitals y ofrecer una experiencia de compra móvil fluida e intuitiva.
+                </p>
+
+                <dl class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Industria</dt>
+                        <dd class="text-sm font-bold text-white mt-1">Retail y Venta Digital</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Tipo de Sistema</dt>
+                        <dd class="text-sm font-bold text-white mt-1">E-commerce Headless / JAMstack</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Enfoque Técnico</dt>
+                        <dd class="text-sm font-bold text-white mt-1">CRO &amp; Core Web Vitals</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Estado</dt>
+                        <dd class="text-sm font-bold text-emerald-400 mt-1 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span> Documentado y Validado</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Mockup principal -->
+        <section class="pb-14 lg:pb-24 -mt-6 relative z-20" aria-label="Mockup del producto">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="monitor-frame bg-slate-900 p-2 shadow-2xl">
+                    <div class="block w-full rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop"
+                             srcset="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=75&amp;w=640&amp;fm=webp&amp;fit=crop 640w, https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop 1200w"
+                             sizes="(max-width: 1024px) 92vw, 70vw"
+                             width="1200" height="675"
+                             alt="Vista desktop de tienda e-commerce de moda de alto rendimiento"
+                             fetchpriority="high" decoding="async"
+                             class="w-full aspect-video object-cover">
+                    </div>
+                </div>
+                <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-500 mt-4">Mockup de alta fidelidad · Catálogo y Home de Tienda</p>
+            </div>
+        </section>
+
+        <!-- Resumen -->
+        <section class="pb-14 lg:pb-24 bg-white" aria-labelledby="resumen-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">01 · Resumen del Proyecto</p>
+                <h2 id="resumen-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-5">Velocidad y conversión como ejes principales</h2>
+                <p class="text-slate-700 leading-relaxed text-lg mb-6">
+                    Muchos comercios electrónicos sufren de carritos abandonados debido a tiempos de carga lentos y experiencias móviles deficientes. Diseñamos este caso de estudio para resolver estos cuellos de botella mediante una arquitectura optimizada para transacciones rápidas, catálogos masivos con filtros instantáneos y un flujo de pagos simplificado.
+                </p>
+                <ul class="grid sm:grid-cols-2 gap-4">
+                    <li class="flex gap-3 text-base text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span>Tiempos de carga inferiores a 1.5 segundos en dispositivos móviles.</span>
+                    </li>
+                    <li class="flex gap-3 text-base text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span>Embudo de compra optimizado para reducir la fricción en el checkout.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Reto -->
+        <section class="pb-14 lg:pb-24 bg-slate-50" aria-labelledby="reto-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">02 · Análisis de Requerimientos</p>
+                    <h2 id="reto-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">El Reto Tecnológico y de Negocio</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200">
+                        <span class="w-12 h-12 rounded-xl bg-red-100 text-red-600 border border-red-200 flex items-center justify-center font-black text-sm mb-6">01</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Carritos Abandonados por Latencia</h3>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Las plataformas tradicionales sobrecargadas de plugins y scripts de terceros ralentizan la navegación. El principal desafío fue construir un motor de tienda capaz de procesar búsquedas y filtros en tiempo real sin recargas de página.
+                        </p>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200">
+                        <span class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 border border-amber-200 flex items-center justify-center font-black text-sm mb-6">02</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Sincronización de Stock en Alta Demanda</h3>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Durante campañas masivas de ventas (como Black Friday), la sobreventa de productos genera fricción operativa. Se requirió una arquitectura capaz de sincronizar inventarios de forma asíncrona y segura con sistemas ERP externos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solución -->
+        <section class="pb-14 lg:pb-24 bg-white" aria-labelledby="solucion-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">03 · Ingeniería de Software</p>
+                    <h2 id="solucion-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">La Solución Arquitectónica</h2>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Experiencia de Usuario</p>
+                            <h3 class="text-xl font-bold text-slate-900">Enfoque Absoluto Mobile-First</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Más del 70% del tráfico proviene de smartphones. Diseñamos componentes táctiles optimizados, gestos fluidos de navegación en catálogos y mini-carritos flotantes de acceso inmediato.
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">Responsive UX/UI</span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Rendimiento Web</p>
+                            <h3 class="text-xl font-bold text-slate-900">Optimización Extrema de Core Web Vitals</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Compilación moderna mediante empaquetadores avanzados, carga diferida de imágenes (lazy loading) y compresión de recursos gráficos en el borde para obtener puntuaciones superiores a 95 en Google PageSpeed.
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">Performance 95+</span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Infraestructura y Datos</p>
+                            <h3 class="text-xl font-bold text-slate-900">Gestión de Inventario y Webhooks</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Procesamiento seguro de transacciones mediante webhooks cifrados con pasarelas de pago y actualización en tiempo real de los estados de pedidos.
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">Secure Webhooks</span>
+                    </div>
+                </div>
+
+                <!-- Diagrama de checkout -->
+                <figure class="mt-10 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-card-soft">
+                    <figcaption class="px-5 py-3 bg-slate-950 text-brand-400 text-xs font-bold uppercase tracking-wider">Diagrama de flujo · Embudo de checkout</figcaption>
+                    <div class="p-5 sm:p-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 items-stretch text-center">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">1 · Catálogo</p>
+                                <p class="text-xs text-slate-600 leading-snug">Filtros instantáneos sin recargas</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">2 · Carrito</p>
+                                <p class="text-xs text-slate-600 leading-snug">Mini-carrito flotante persistente</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">3 · Pago</p>
+                                <p class="text-xs text-slate-600 leading-snug">Checkout en pasos con pasarelas multi-moneda</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">4 · Confirmación</p>
+                                <p class="text-xs text-slate-600 leading-snug">Webhook cifrado + stock en tiempo real</p>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Stack tecnológico -->
+        <section class="py-14 lg:py-24 bg-slate-950 text-white" aria-labelledby="stack-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">04 · Tecnologías</p>
+                    <h2 id="stack-title" class="text-2xl sm:text-3xl font-black tracking-tight">Stack Tecnológico Seleccionado</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-xs">FE</span>
+                            <h3 class="font-black text-base">Frontend &amp; UI</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> React / Vite o Vue.js</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Tailwind CSS Modular</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Animaciones CSS Fluidas</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-xs">BE</span>
+                            <h3 class="font-black text-base">Backend &amp; Pagos</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> API RESTful de Alta Velocidad</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Pasarelas (Stripe, PayPal, Local)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Webhooks Asíncronos</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-[11px]">INF</span>
+                            <h3 class="font-black text-base">Infraestructura &amp; CDN</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Cloudflare Edge Caching</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Bases de datos optimizadas</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Certificados SSL / TLS Avanzados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section class="py-14 lg:py-24 bg-slate-50" aria-labelledby="features-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">05 · Funcionalidades</p>
+                    <h2 id="features-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Características Clave Destacadas</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-search-plus"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">01. Búsqueda Instantánea</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Motor de filtrado multinivel por categoría, rango de precios, marca y atributos en tiempo real sin latencia perceptible para el usuario final.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-credit-card"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">02. Checkout Simplificado</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Proceso de pago en pasos limpios e intuitivos, diseñados específicamente para reducir al mínimo el abandono de carritos y acelerar la conversión.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-gears"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">03. Panel de Administración</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Módulo de gestión interna a medida para control de stock, estados de envíos, reportes analíticos de ventas y cupones de descuento automatizados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Imagen de apoyo -->
+                <figure class="mt-10 rounded-2xl overflow-hidden border border-slate-200 bg-white group">
+                    <div class="aspect-video bg-slate-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop"
+                             width="1200" height="675"
+                             alt="Mockup de ficha de producto en tienda e-commerce con experiencia de compra optimizada"
+                             loading="lazy" decoding="async"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <figcaption class="px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">Mockup · Ficha de Producto y Mini-carrito</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Demo próximamente -->
+        <section class="py-14 lg:py-20 bg-white border-t border-slate-200" aria-labelledby="demo-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-300 mb-5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-bolt"/></svg>
+                    Entorno en desarrollo
+                </p>
+                <h2 id="demo-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-4">¿Quieres ver este sistema en funcionamiento?</h2>
+                <p class="text-slate-600 text-lg mb-8">Estamos ultimando los detalles del entorno de pruebas interactivo para este e-commerce. Muy pronto podrás explorar el demo en vivo.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 text-slate-950 font-extrabold text-sm hover:bg-brand-600 transition-colors">
+                        <span>Solicitar demo privada</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-14 lg:py-20 bg-slate-950 text-white" aria-labelledby="cta-title">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <h2 id="cta-title" class="text-3xl sm:text-4xl font-black">¿Necesitas una Tienda Online como esta?</h2>
+                <p class="text-slate-400 text-lg">Cuéntanos tu catálogo y tus objetivos de conversión y te mostramos el plan técnico, el stack recomendado y el presupuesto en menos de 24 horas.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/cotizador?type=ecommerce" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-amber-400 text-slate-950 font-black shadow-glow hover:shadow-2xl transition-all">
+                        <span>Cotizar mi Tienda Online</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                    <a href="/portafolio" class="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-700 text-slate-300 hover:border-brand-500 hover:text-white font-bold text-sm transition-colors">
+                        <span>Ver todo el portafolio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- @include partials/footer.html -->
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

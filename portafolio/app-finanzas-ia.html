@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de App Móvil de Finanzas Personales con Copiloto IA | Caso de Estudio</title>
+    <meta name="description" content="Caso de estudio: app móvil iOS/Android de finanzas personales con copiloto IA que detecta suscripciones fantasma, alertas predictivas de flujo de caja y análisis de gastos on-device.">
+    <link rel="canonical" href="https://www.webmotto.com/portafolio/app-finanzas-ia">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="keywords" content="desarrollo de app móvil, app de finanzas personales, copiloto IA, fintech, React Native, suscripciones, IA on-device, alertas financieras">
+
+    <meta property="og:title" content="Caso de Estudio: App Móvil de Finanzas Personales con Copiloto IA">
+    <meta property="og:description" content="Aplicación iOS/Android con IA on-device que detecta suscripciones fantasma y anticipa el flujo de caja con alertas proactivas.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.webmotto.com/portafolio/app-finanzas-ia">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.webmotto.com/portafolio/app-finanzas-ia"},"headline":"Desarrollo de App Móvil de Finanzas Personales con Geminis IA y Detección de Suscripciones","description":"Caso de estudio: app móvil iOS/Android de finanzas personales con copiloto IA, detección de suscripciones fantasma y análisis on-device.","author":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com"},"publisher":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com","logo":{"@type":"ImageObject","url":"https://www.webmotto.com/favicon.svg"}},"keywords":"app finanzas personales, copiloto IA, fintech, React Native, IA on-device","inLanguage":"es","about":["Desarrollo de Apps Móviles","Inteligencia Artificial","Fintech"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.webmotto.com/"},{"@type":"ListItem","position":2,"name":"Portafolio","item":"https://www.webmotto.com/portafolio"},{"@type":"ListItem","position":3,"name":"App de Finanzas con IA","item":"https://www.webmotto.com/portafolio/app-finanzas-ia"}]}</script>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- @include partials/header.html -->
+
+    <main id="contenido">
+
+        <!-- Hero del caso de estudio -->
+        <section class="pt-28 pb-14 lg:pt-40 lg:pb-24 bg-slate-950 text-white relative overflow-hidden" aria-labelledby="cs-title">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                <nav aria-label="Migas de pan" class="mb-8 text-sm font-semibold text-slate-500">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li><a href="/" class="hover:text-brand-500">Inicio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li><a href="/portafolio" class="hover:text-brand-500">Portafolio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li class="text-slate-300">App de Finanzas con IA</li>
+                    </ol>
+                </nav>
+
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider border border-brand-500/30 mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-mobile"/></svg>
+                    Caso de Estudio · Fintech &amp; IA Móvil
+                </p>
+
+                <h1 id="cs-title" class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
+                    Desarrollo de App Móvil de Finanzas Personales con <span class="text-gradient-gold">Geminis IA</span>
+                </h1>
+
+                <p class="text-slate-400 text-base sm:text-lg mt-6 max-w-3xl">
+                    Ingeniería de aplicaciones iOS/Android que automatizan el control del dinero: detección de suscripciones fantasma, categorización con IA on-device y alertas proactivas antes de que el saldo se convierta en problema.
+                </p>
+
+                <dl class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Industria</dt>
+                        <dd class="text-sm font-bold text-white mt-1">Fintech / Consumidor</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Plataformas</dt>
+                        <dd class="text-sm font-bold text-white mt-1">iOS &amp; Android (RN)</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Enfoque Técnico</dt>
+                        <dd class="text-sm font-bold text-white mt-1">IA On-device &amp; Privacidad</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Estado</dt>
+                        <dd class="text-sm font-bold text-emerald-400 mt-1 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span> Documentado y Validado</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Mockup principal -->
+        <section class="pb-14 lg:pb-24 -mt-6 relative z-20" aria-label="Mockup del producto">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="monitor-frame bg-slate-900 p-2 shadow-2xl">
+                    <div class="block w-full rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop"
+                             srcset="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=75&amp;w=640&amp;fm=webp&amp;fit=crop 640w, https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop 1200w"
+                             sizes="(max-width: 1024px) 92vw, 70vw"
+                             width="1200" height="675"
+                             alt="Usuario consultando la app móvil de finanzas en su teléfono"
+                             fetchpriority="high" decoding="async"
+                             class="w-full aspect-video object-cover">
+                    </div>
+                </div>
+                <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-500 mt-4">Mockup de alta fidelidad · App iOS/Android en Uso Real</p>
+            </div>
+        </section>
+
+        <!-- Resumen -->
+        <section class="pb-14 lg:pb-24 bg-white" aria-labelledby="resumen-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">01 · Resumen del Proyecto</p>
+                <h2 id="resumen-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-5">El copiloto financiero que va en el bolsillo</h2>
+                <p class="text-slate-700 leading-relaxed text-lg mb-6">
+                    La mayoría de las personas no pierde el dinero en compras grandes: lo pierde en cargos recurrentes que olvidaron y decisiones pequeñas del día a día. Este caso de estudio documenta una app que toma control de ese problema con un copiloto de IA que observa, clasifica y avisa antes de que sea tarde, sin que los datos bancarios salgan del dispositivo.
+                </p>
+                <ul class="grid sm:grid-cols-2 gap-4">
+                    <li class="flex gap-3 text-base text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span>Detección automática de suscripciones fantasma y cargos recurrentes.</span>
+                    </li>
+                    <li class="flex gap-3 text-base text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span>Alertas predictivas de flujo de caja 7 días antes del saldo bajo.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Reto -->
+        <section class="pb-14 lg:pb-24 bg-slate-50" aria-labelledby="reto-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">02 · Análisis de Requerimientos</p>
+                    <h2 id="reto-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">El Reto: Gastos Fantasma y Desconfianza</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200">
+                        <span class="w-12 h-12 rounded-xl bg-red-100 text-red-600 border border-red-200 flex items-center justify-center font-black text-sm mb-6">01</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Suscripciones Fantasma</h3>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Cada mes salen cargos de servicios que nadie recuerda haber contratado. El reto fue identificar y agrupar automáticamente todo cargo recurrente —incluso con nombres de comercios confusos— y llevar al usuario hasta la cancelación en pocos pasos.
+                        </p>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200">
+                        <span class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 border border-amber-200 flex items-center justify-center font-black text-sm mb-6">02</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Privacidad con Datos Bancarios</h3>
+                        <p class="text-slate-600 leading-relaxed text-base">
+                            Ninguna persona confía su historia financiera a una app que no puede explicar qué hace con sus datos. Se requirió una arquitectura con conexión de solo lectura, cifrado extremo a extremo y modelos de IA que corren en el dispositivo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solución -->
+        <section class="pb-14 lg:pb-24 bg-white" aria-labelledby="solucion-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">03 · Ingeniería de Software</p>
+                    <h2 id="solucion-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">La Solución Arquitectónica</h2>
+                </div>
+
+                <div class="space-y-5">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Conexión</p>
+                            <h3 class="text-xl font-bold text-slate-900">Open Finance de Solo Lectura</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Enlace seguro de bancos y billeteras virtuales mediante APIs Open Finance. La app nunca mueve dinero: solo lee movimientos, los normaliza y los sincroniza cada 24 horas o bajo demanda.
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">Open Finance API</span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Inteligencia</p>
+                            <h3 class="text-xl font-bold text-slate-900">IA On-device y Detección de Anomalías</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Un modelo compacto corre dentro del teléfono para categorizar transacciones, detectar cargos inusuales y comparar el gasto real contra el patrón histórico sin enviar información financiera a la nube.
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">AI On-Device</span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+                        <div class="space-y-2 max-w-2xl">
+                            <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Engagement</p>
+                            <h3 class="text-xl font-bold text-slate-900">Copiloto Proactivo con Alertas</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Notificaciones inteligentes con contexto: suscripción por renovar, gasto fuera de patrón o saldo proyectado bajo. Cada alerta incluye la acción sugerida (pausar, cancelar o mover presupuesto).
+                            </p>
+                        </div>
+                        <span class="shrink-0 px-4 py-2 rounded-lg bg-brand-100 border border-brand-300 text-brand-700 font-bold text-xs uppercase tracking-wider">Proactive Alerts</span>
+                    </div>
+                </div>
+
+                <!-- Diagrama de flujo -->
+                <figure class="mt-10 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-card-soft">
+                    <figcaption class="px-5 py-3 bg-slate-950 text-brand-400 text-xs font-bold uppercase tracking-wider">Diagrama de flujo · Ciclo del copiloto financiero</figcaption>
+                    <div class="p-5 sm:p-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 items-stretch text-center">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">1 · Conexión</p>
+                                <p class="text-xs text-slate-600 leading-snug">Bancos y wallets enlazados (solo lectura)</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">2 · Categorización</p>
+                                <p class="text-xs text-slate-600 leading-snug">IA on-device clasifica cada movimiento</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">3 · Detección</p>
+                                <p class="text-xs text-slate-600 leading-snug">Cargos recurrentes y anomalías</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">4 · Alerta</p>
+                                <p class="text-xs text-slate-600 leading-snug">Push con contexto y recomendación</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">5 · Acción</p>
+                                <p class="text-xs text-slate-600 leading-snug">Cancelar, pausar o reasignar presupuesto</p>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Stack tecnológico -->
+        <section class="py-14 lg:py-24 bg-slate-950 text-white" aria-labelledby="stack-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">04 · Tecnologías</p>
+                    <h2 id="stack-title" class="text-2xl sm:text-3xl font-black tracking-tight">Stack Tecnológico Seleccionado</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-xs">APP</span>
+                            <h3 class="font-black text-base">Aplicación Móvil</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> React Native (Expo)</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Nativos iOS / Android</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Biometría (Face ID / Huella)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-xs">IA</span>
+                            <h3 class="font-black text-base">Inteligencia Artificial</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Modelo compacto on-device</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Clasificación de transacciones</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Detección de anomalías</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center font-black text-[11px]">SEC</span>
+                            <h3 class="font-black text-base">Datos &amp; Seguridad</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> APIs Open Finance</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Cifrado AES-256 extremo a extremo</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span> Push seguro y sesiones cortas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section class="py-14 lg:py-24 bg-slate-50" aria-labelledby="features-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">05 · Funcionalidades</p>
+                    <h2 id="features-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Características Clave Destacadas</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-credit-card"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">01. Panel de Suscripciones</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Todos los cargos recurrentes en una sola lista con historial, próximo cobro y enlace directo para cancelar o pausar sin salir de la app.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-chart-pie"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">02. Presupuestos Adaptativos</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Categorías que se recalibran solas con el gasto real de cada semana y proyectan cuánto queda disponible hasta el siguiente ingreso.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors space-y-3">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-lock"/></svg>
+                        </div>
+                        <h3 class="font-black text-base text-slate-900">03. Modo Privacidad</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Análisis local en el dispositivo, bloqueo biométrico y cero venta de datos: la información financiera nunca sale en texto plano.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Imagen de apoyo -->
+                <figure class="mt-10 rounded-2xl overflow-hidden border border-slate-200 bg-white group">
+                    <div class="aspect-video bg-slate-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop"
+                             width="1200" height="675"
+                             alt="Persona gestionando sus finanzas con tarjeta de crédito y portátil"
+                             loading="lazy" decoding="async"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <figcaption class="px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">Contexto de Uso · Control de Gastos y Cobros</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Demo próximamente -->
+        <section class="py-14 lg:py-20 bg-white border-t border-slate-200" aria-labelledby="demo-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-300 mb-5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-bolt"/></svg>
+                    Entorno en desarrollo
+                </p>
+                <h2 id="demo-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-4">¿Quieres ver este sistema en funcionamiento?</h2>
+                <p class="text-slate-600 text-lg mb-8">Estamos preparando el build de prueba de la app para demostraciones en vivo con datos de ejemplo. Muy pronto podrás probarla en tu teléfono.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 text-slate-950 font-extrabold text-sm hover:bg-brand-600 transition-colors">
+                        <span>Solicitar demo privada</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-14 lg:py-20 bg-slate-950 text-white" aria-labelledby="cta-title">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <h2 id="cta-title" class="text-3xl sm:text-4xl font-black">¿Tienes una Idea de App Móvil?</h2>
+                <p class="text-slate-400 text-lg">Cuéntanos qué problema resuelve tu app y te mostramos el plan técnico, el alcance por plataforma y el presupuesto en menos de 24 horas.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/cotizador?type=mobile" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-amber-400 text-slate-950 font-black shadow-glow hover:shadow-2xl transition-all">
+                        <span>Cotizar mi App Móvil</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                    <a href="/portafolio" class="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-700 text-slate-300 hover:border-brand-500 hover:text-white font-bold text-sm transition-colors">
+                        <span>Ver todo el portafolio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- @include partials/footer.html -->
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

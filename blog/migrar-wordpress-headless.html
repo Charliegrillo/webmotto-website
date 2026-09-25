@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrar WordPress a headless: cuándo vale la pena | Agencia Web Studio</title>
+    <meta name="description" content="Ventajas y riesgos de una arquitectura headless con WordPress. Checklist de migración, SEO, edición y costos de mantenimiento.">
+    <link rel="canonical" href="https://www.webmotto.com/blog/migrar-wordpress-headless">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="author" content="Diego Herrera">
+    <meta name="keywords" content="Headless, WordPress, Jamstack, Arquitectura web">
+
+    <meta property="og:title" content="Migrar WordPress a headless: cuándo vale la pena">
+    <meta property="og:description" content="Ventajas y riesgos de una arquitectura headless con WordPress. Checklist de migración, SEO, edición y costos de mantenimiento.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.webmotto.com/blog/migrar-wordpress-headless">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+    <meta property="og:locale" content="es_ES">
+    <meta property="article:published_time" content="2026-09-03">
+    <meta property="article:author" content="Diego Herrera">
+    <meta property="article:section" content="Desarrollo Web">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Migrar WordPress a headless: cuándo vale la pena">
+    <meta name="twitter:description" content="Ventajas y riesgos de una arquitectura headless con WordPress. Checklist de migración, SEO, edición y costos de mantenimiento.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.webmotto.com/blog/migrar-wordpress-headless"},"headline":"Migrar WordPress a headless: cuándo vale la pena","description":"Ventajas y riesgos de una arquitectura headless con WordPress. Checklist de migración, SEO, edición y costos de mantenimiento.","image":["https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"],"datePublished":"2026-09-03","dateModified":"2026-09-03","author":{"@type":"Person","name":"Diego Herrera","jobTitle":"Arquitecto de soluciones"},"publisher":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com","logo":{"@type":"ImageObject","url":"https://www.webmotto.com/favicon.svg"}},"keywords":"Headless, WordPress, Jamstack, Arquitectura web","articleSection":"Desarrollo Web","wordCount":209,"inLanguage":"es"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.webmotto.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.webmotto.com/blog"},{"@type":"ListItem","position":3,"name":"Migrar WordPress a headless: cuándo vale la pena","item":"https://www.webmotto.com/blog/migrar-wordpress-headless"}]}</script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- @include partials/header.html -->
+
+    <main id="contenido">
+        <article class="pt-24 pb-8 lg:pt-36 lg:pb-16" itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <nav aria-label="Migas de pan" class="mb-8 text-sm font-semibold text-slate-500">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li><a href="/" class="hover:text-brand-600">Inicio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li><a href="/blog" class="hover:text-brand-600">Blog</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li class="text-slate-800 line-clamp-1 max-w-[14rem]">Desarrollo Web</li>
+                    </ol>
+                </nav>
+
+                <header class="mb-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <a href="/blog?cat=web" class="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider hover:bg-brand-200 transition-colors">Desarrollo Web</a>
+                        <time datetime="2026-09-03" class="text-sm text-slate-500 font-semibold" itemprop="datePublished">3 de septiembre de 2026</time>
+                        <span class="text-sm text-slate-500 font-semibold">9 min de lectura</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-black text-slate-900 leading-tight tracking-tight" itemprop="headline">Migrar WordPress a headless: cuándo vale la pena</h1>
+                    <p class="mt-4 text-lg text-slate-600 leading-relaxed" itemprop="description">Decapitar WordPress no es moda: es una decisión de rendimiento y experiencia de edición. Te contamos cuándo conviene y cómo migrar sin perder SEO.</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-brand-500 text-slate-950 font-black flex items-center justify-center text-sm" aria-hidden="true">DH</span>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900" itemprop="author">Diego Herrera</p>
+                            <p class="text-xs text-slate-500">Arquitecto de soluciones</p>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="mb-10 rounded-3xl overflow-hidden border border-slate-200 shadow-card-soft">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Código de programación en pantalla de computadora" width="1200" height="630" itemprop="image" decoding="async" class="w-full aspect-[16/9] object-cover">
+                </figure>
+
+                <div class="prose-blog" itemprop="articleBody">
+              <p class="text-slate-700 leading-relaxed text-lg mb-5">Headless con WordPress significa usar el CMS clásico como backend de contenido y consumirlo vía REST API o GraphQL desde un frontend moderno (Next, Nuxt, Astro…).</p>
+              <h2 class="text-2xl font-extrabold text-slate-900 mt-10 mb-4 tracking-tight">Cuándo tiene sentido</h2>
+              <ul class="space-y-3 my-5">
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Necesitas frontends múviles (web + app + kiosco) sobre el mismo contenido.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>El rendimiento del tema clásico ya no llega a buenos Core Web Vitals.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Tu equipo de producto quiere despliegues independientes del CMS.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Diseño altamente custom que pelea con PHP de plantillas.</span></li>
+              </ul>
+              <h2 class="text-2xl font-extrabold text-slate-900 mt-10 mb-4 tracking-tight">Cuándo NO migrar</h2>
+              <p class="text-slate-700 leading-relaxed text-lg mb-5">Si el sitio está estable, el tráfico depende de plugins de membership/e-commerce acoplados y no hay equipo frontend, el costo de headless supera el beneficio. WordPress monolítico bien optimizado sigue ganando a headless mal montado.</p>
+              <h2 class="text-2xl font-extrabold text-slate-900 mt-10 mb-4 tracking-tight">Checklist de migración sin perder SEO</h2>
+              <ul class="space-y-3 my-5">
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Inventario de URLs y redirecciones 301.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Preservar slugs, fechas canónicas y schema Article.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>SSG o SSR para HTML inicial con contenido real.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Migrar imágenes a CDN y mantener rutas o redirects.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Validar Search Console después del cutover.</span></li>
+                <li class="flex gap-3 text-lg text-slate-700 leading-relaxed"><svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg><span>Formación al equipo editor: cómo publicar en el nuevo flujo.</span></li>
+              </ul>
+              <h2 class="text-2xl font-extrabold text-slate-900 mt-10 mb-4 tracking-tight">Costo de mantenimiento</h2>
+              <p class="text-slate-700 leading-relaxed text-lg mb-5">Suma hosting del frontend, cache/CDN y coordinación de versiones CMS↔front. Compensa cuando el frontend cambia a menudo y el contenido cambia a otro ritmo.</p>
+              <p class="text-slate-700 leading-relaxed text-lg mb-5">Conclusión: headless es un acelerador de producto, no un trofeo de arquitectura. Migra por dolor concreto, no por tendencia.</p>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-slate-200">
+                    <p class="text-sm font-bold text-slate-900 mb-3">Etiquetas</p>
+                    <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700">Headless</span> <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700">WordPress</span> <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700">Jamstack</span> <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700">Arquitectura web</span></div>
+                </div>
+
+                <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-slate-950 text-white border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                    <div>
+                        <p class="font-bold text-base">¿Quieres resultados como los de este artículo?</p>
+                        <p class="text-slate-400 text-sm mt-1">Cuéntanos tu proyecto y recibe una propuesta en menos de 24 h.</p>
+                    </div>
+                    <a href="/cotizador" class="shrink-0 px-6 py-3 rounded-xl bg-brand-500 text-slate-950 font-extrabold text-sm hover:bg-brand-600 transition-colors">Cotizar gratis</a>
+                </div>
+
+                <section class="mt-14" aria-labelledby="related-title">
+                    <h2 id="related-title" class="text-2xl font-black text-slate-900 mb-6">Artículos relacionados</h2>
+                    <div class="grid sm:grid-cols-3 gap-5">
+
+              <a href="/blog/cuanto-cuesta-hacer-una-pagina-web" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-brand-500 hover:shadow-xl transition-all">
+                <div class="aspect-video bg-slate-100 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Calculadora y documentos financieros sobre un escritorio" width="640" height="360" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                  <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-2">Desarrollo Web</p>
+                  <h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-brand-700 transition-colors">¿Cuánto cuesta hacer una página web? Precios reales 2026</h3>
+                </div>
+              </a>
+
+              <a href="/blog/migracion-http2-http3-seo" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-brand-500 hover:shadow-xl transition-all">
+                <div class="aspect-video bg-slate-100 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Servidores de red en un centro de datos" width="640" height="360" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                  <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-2">Desarrollo Web</p>
+                  <h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-brand-700 transition-colors">HTTP/2 y HTTP/3: impacto real en SEO y UX</h3>
+                </div>
+              </a>
+
+              <a href="/blog/imagenes-web-peso-y-umbral" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-brand-500 hover:shadow-xl transition-all">
+                <div class="aspect-video bg-slate-100 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Cámara y fotografías representando optimización de imágenes" width="640" height="360" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                  <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-2">Desarrollo Web</p>
+                  <h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-brand-700 transition-colors">Imágenes en la web: formatos, peso y buenas prácticas</h3>
+                </div>
+              </a>
+                    </div>
+                </section>
+
+                <nav class="mt-12 flex items-stretch justify-between gap-3 sm:gap-4 text-sm font-bold" aria-label="Navegación entre artículos">
+                    <a href="/blog/seo-local-negocios-2026" class="shrink-0 px-3 sm:px-4 py-2 rounded-xl border border-slate-300 text-slate-700 hover:border-brand-500 hover:text-brand-700 transition-colors flex items-center justify-center" aria-label="Artículo anterior: SEO local 2026: cómo aparecer en el mapa de Google"><svg class="w-5 h-5 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg><span class="hidden sm:block min-w-0"><span class="block text-[11px] uppercase tracking-wider text-slate-500 mb-1 whitespace-nowrap">← Anterior</span><span class="line-clamp-2 max-w-[10rem] sm:max-w-[12rem]">SEO local 2026: cómo aparecer en el mapa de Google</span></span></a>
+                    <a href="/blog" aria-label="Ver todo el blog" class="shrink-0 px-3 sm:px-4 py-2 rounded-xl border border-slate-300 text-slate-700 hover:border-brand-500 hover:text-brand-700 transition-colors flex items-center justify-center">
+                        <svg class="w-5 h-5 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        <span class="hidden sm:inline whitespace-nowrap">Ver todo el blog</span>
+                    </a>
+                    <a href="/blog/email-que-vende-b2b" class="shrink-0 px-3 sm:px-4 py-2 rounded-xl border border-slate-300 text-slate-700 hover:border-brand-500 hover:text-brand-700 transition-colors flex items-center justify-center sm:justify-end" aria-label="Artículo siguiente: Email marketing B2B que vende sin sonar a spam"><svg class="w-5 h-5 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg><span class="hidden sm:block min-w-0"><span class="block text-[11px] uppercase tracking-wider text-slate-500 mb-1 whitespace-nowrap">Siguiente →</span><span class="line-clamp-2 max-w-[10rem] sm:max-w-[12rem]">Email marketing B2B que vende sin sonar a spam</span></span></a>
+                </nav>
+            </div>
+        </article>
+    </main>
+
+    <!-- @include partials/footer.html -->
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de Plataforma SaaS Multi-tenant con Arquitectura Escalable | Caso de Estudio</title>
+    <meta name="description" content="Caso de estudio técnico: plataforma SaaS multi-tenant con Clean Architecture, sincronización offline-first (IndexedDB), stack React + Laravel + PostgreSQL y dashboards dinámicos.">
+    <link rel="canonical" href="https://www.webmotto.com/portafolio/saas-gestion-operativa">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f59e0b">
+    <meta name="keywords" content="desarrollo SaaS, plataforma SaaS multi-tenant, arquitectura escalable, sincronización offline, React, Laravel, PWA, software a medida">
+
+    <meta property="og:title" content="Caso de Estudio: Plataforma SaaS Multi-tenant con Arquitectura Escalable">
+    <meta property="og:description" content="Retos, solución arquitectónica, stack tecnológico y mockups de una plataforma SaaS B2B offline-first con aislamiento multi-tenant.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.webmotto.com/portafolio/saas-gestion-operativa">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.webmotto.com/portafolio/saas-gestion-operativa"},"headline":"Desarrollo de Plataforma SaaS Multi-tenant con Arquitectura Escalable y Sincronización Offline","description":"Caso de estudio técnico: plataforma SaaS multi-tenant con Clean Architecture, sincronización offline-first (IndexedDB), stack React + Laravel + PostgreSQL y dashboards dinámicos.","author":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com"},"publisher":{"@type":"Organization","name":"Agencia Web Studio","url":"https://www.webmotto.com","logo":{"@type":"ImageObject","url":"https://www.webmotto.com/favicon.svg"}},"keywords":"SaaS multi-tenant, Clean Architecture, sincronización offline, React, Laravel, PWA, PostgreSQL","inLanguage":"es","about":["Desarrollo de Software SaaS","Arquitectura Escalable","PWA Offline-First"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.webmotto.com/"},{"@type":"ListItem","position":2,"name":"Portafolio","item":"https://www.webmotto.com/portafolio"},{"@type":"ListItem","position":3,"name":"Plataforma SaaS Multi-tenant","item":"https://www.webmotto.com/portafolio/saas-gestion-operativa"}]}</script>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- @include partials/header.html -->
+
+    <main id="contenido">
+
+        <!-- Hero del caso de estudio -->
+        <section class="pt-28 pb-14 lg:pt-40 lg:pb-24 bg-slate-950 text-white relative overflow-hidden" aria-labelledby="cs-title">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                <nav aria-label="Migas de pan" class="mb-8 text-sm font-semibold text-slate-500">
+                    <ol class="flex flex-wrap items-center gap-2">
+                        <li><a href="/" class="hover:text-brand-500">Inicio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li><a href="/portafolio" class="hover:text-brand-500">Portafolio</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li class="text-slate-300">Plataforma SaaS Multi-tenant</li>
+                    </ol>
+                </nav>
+
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider border border-brand-500/30 mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-chart-pie"/></svg>
+                    Caso de Estudio · SaaS B2B
+                </p>
+
+                <h1 id="cs-title" class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
+                    Desarrollo de Plataforma SaaS Multi-tenant con Arquitectura Escalable y <span class="text-gradient-gold">Sincronización Offline</span>
+                </h1>
+
+                <p class="text-slate-400 text-base sm:text-lg mt-6 max-w-3xl">
+                    Sistema de gestión operativa multi-inquilino diseñado para alta disponibilidad: aislamiento seguro de datos por cliente, interfaz tipo aplicación nativa (PWA) y persistencia local con sincronización automática al recuperar la red.
+                </p>
+
+                <dl class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Tipo</dt>
+                        <dd class="text-sm font-bold text-white mt-1">SaaS B2B</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Industria</dt>
+                        <dd class="text-sm font-bold text-white mt-1">Automatización de Procesos</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Estado</dt>
+                        <dd class="text-sm font-bold text-white mt-1">Producto en Optimización</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <dt class="text-[11px] font-bold uppercase tracking-wider text-brand-400">Arquitectura</dt>
+                        <dd class="text-sm font-bold text-white mt-1">Clean · Multi-tenant · PWA</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Mockup principal -->
+        <section class="pb-14 lg:pb-24 -mt-6 relative z-20" aria-label="Mockup del producto">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="monitor-frame bg-slate-900 p-2 shadow-2xl">
+                    <div class="block w-full rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop"
+                             srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&amp;w=640&amp;fm=webp&amp;fit=crop 640w, https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&amp;w=1200&amp;fm=webp&amp;fit=crop 1200w"
+                             sizes="(max-width: 1024px) 92vw, 70vw"
+                             width="1200" height="675"
+                             alt="Dashboard principal de la plataforma SaaS multi-tenant con métricas financieras y operativas"
+                             fetchpriority="high" decoding="async"
+                             class="w-full aspect-video object-cover">
+                    </div>
+                </div>
+                <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-500 mt-4">Mockup de alta fidelidad · Panel Multi-inquilino</p>
+            </div>
+        </section>
+
+        <!-- Reto -->
+        <section class="pb-14 lg:pb-24 bg-white" aria-labelledby="reto-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">01 · El Problema</p>
+                <h2 id="reto-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-5">El Reto Tecnológico y de Negocio</h2>
+                <p class="text-slate-700 leading-relaxed text-lg mb-5">
+                    Las empresas modernas manejan operaciones fragmentadas que requieren software rápido, seguro y capaz de operar bajo intermitencias de red. El objetivo principal fue diseñar una plataforma multi-tenant robusta que permitiera aislar los datos de cada cliente de forma segura, ofrecer una interfaz fluida estilo aplicación nativa y garantizar la persistencia de datos local para escenarios con conectividad limitada.
+                </p>
+                <div class="grid sm:grid-cols-3 gap-4 mt-8">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <svg class="w-6 h-6 text-brand-600 mb-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-globe"/></svg>
+                        <p class="text-sm font-bold text-slate-900 mb-1">Red Intermitente</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Operativos de campo sin conectividad constante que no podían perder registros.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <svg class="w-6 h-6 text-brand-600 mb-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-lock"/></svg>
+                        <p class="text-sm font-bold text-slate-900 mb-1">Aislamiento de Datos</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Cada organización exigía privacidad total sobre su información.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <svg class="w-6 h-6 text-brand-600 mb-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-bolt"/></svg>
+                        <p class="text-sm font-bold text-slate-900 mb-1">Alta Disponibilidad</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Interfaz instantánea estilo app nativa, no un portal web pesado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solución arquitectónica -->
+        <section class="pb-14 lg:pb-24 bg-slate-50" aria-labelledby="solucion-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">02 · La Solución</p>
+                <h2 id="solucion-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-5">La Solución Arquitectónica</h2>
+                <p class="text-slate-700 leading-relaxed text-lg mb-5">
+                    Para garantizar la mantenibilidad a largo plazo, el sistema se estructuró bajo principios de ingeniería avanzados:
+                </p>
+                <ul class="space-y-4 my-5">
+                    <li class="flex gap-3 text-lg text-slate-700 leading-relaxed bg-white p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span><strong class="text-slate-900">Arquitectura Limpia (Clean Architecture):</strong> separación estricta entre la capa de dominio, la lógica de aplicación y la infraestructura externa, facilitando la escalabilidad de nuevas funcionalidades sin romper el núcleo del sistema.</span>
+                    </li>
+                    <li class="flex gap-3 text-lg text-slate-700 leading-relaxed bg-white p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span><strong class="text-slate-900">Patrón Repositorio y Principios SOLID:</strong> desacoplamiento total de las fuentes de datos y modularidad orientada a características (Feature-First), permitiendo un mantenimiento limpio y colaborativo.</span>
+                    </li>
+                    <li class="flex gap-3 text-lg text-slate-700 leading-relaxed bg-white p-5 rounded-2xl border border-slate-200">
+                        <svg class="w-5 h-5 text-brand-500 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-check"/></svg>
+                        <span><strong class="text-slate-900">Modelo Multi-tenant:</strong> aislamiento lógico de bases de datos para garantizar la privacidad y seguridad de la información de cada organización inquilina.</span>
+                    </li>
+                </ul>
+
+                <!-- Diagrama de capas -->
+                <figure class="mt-10 rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-card-soft">
+                    <figcaption class="px-5 py-3 bg-slate-950 text-brand-400 text-xs font-bold uppercase tracking-wider">Diagrama de arquitectura · Capas de Clean Architecture</figcaption>
+                    <div class="p-5 sm:p-8 space-y-3">
+                        <div class="rounded-xl border-2 border-dashed border-brand-400 bg-brand-50 px-4 py-4 text-center">
+                            <p class="text-xs font-black uppercase tracking-wider text-brand-700">Presentación (React + Vite + Tailwind · PWA)</p>
+                        </div>
+                        <div class="rounded-xl border-2 border-dashed border-sky-400 bg-sky-50 px-4 py-4 text-center">
+                            <p class="text-xs font-black uppercase tracking-wider text-sky-700">Capa de Aplicación · Casos de Uso · Feature-First</p>
+                        </div>
+                        <div class="rounded-xl border-2 border-dashed border-emerald-400 bg-emerald-50 px-4 py-4 text-center">
+                            <p class="text-xs font-black uppercase tracking-wider text-emerald-700">Dominio · Entidades · Reglas de Negocio (SOLID)</p>
+                        </div>
+                        <div class="rounded-xl border-2 border-dashed border-amber-400 bg-amber-50 px-4 py-4 text-center">
+                            <p class="text-xs font-black uppercase tracking-wider text-amber-700">Infraestructura · API REST Laravel · Repositorios · PostgreSQL</p>
+                        </div>
+                        <p class="text-center text-[11px] text-slate-500 font-semibold pt-1">Las flechas de dependencia apuntan hacia adentro: el dominio nunca depende de la infraestructura.</p>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Stack tecnológico -->
+        <section class="py-14 lg:py-24 bg-slate-950 text-white" aria-labelledby="stack-title">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">03 · Tecnología</p>
+                <h2 id="stack-title" class="text-2xl sm:text-3xl font-black tracking-tight mb-8">Stack Tecnológico</h2>
+
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-cloud"/></svg>
+                            <h3 class="font-black text-base">Backend · API RESTful</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">API robusta desarrollada con arquitecturas modulares (PHP/Laravel), optimizada para baja latencia y alta concurrencia.</p>
+                        <ul class="flex flex-wrap gap-2 mt-4 text-xs font-bold">
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Laravel</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">PHP 8</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">REST API</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-code"/></svg>
+                            <h3 class="font-black text-base">Frontend · PWA</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">Interfaz ultrarrápida construida con React, Vite y Tailwind CSS, convertida en Progressive Web App instalable.</p>
+                        <ul class="flex flex-wrap gap-2 mt-4 text-xs font-bold">
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">React</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Vite</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-cubes"/></svg>
+                            <h3 class="font-black text-base">Datos &amp; Sincronización</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">Almacenamiento local con IndexedDB para sincronización offline en segundo plano y bases de datos relacionales optimizadas.</p>
+                        <ul class="flex flex-wrap gap-2 mt-4 text-xs font-bold">
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">IndexedDB</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">PostgreSQL</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">MySQL</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-shield"/></svg>
+                            <h3 class="font-black text-base">Seguridad &amp; Multi-tenant</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">Aislamiento lógico por inquilino, control de acceso por roles y cifrado en tránsito de extremo a extremo.</p>
+                        <ul class="flex flex-wrap gap-2 mt-4 text-xs font-bold">
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">RBAC</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">JWT / OAuth2</li>
+                            <li class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">TLS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flujo offline-first -->
+        <section class="py-14 lg:py-24 bg-white" aria-labelledby="offline-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">04 · Flujo de Datos</p>
+                <h2 id="offline-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-5">Sincronización Offline-First</h2>
+                <p class="text-slate-700 leading-relaxed text-lg mb-8">
+                    Las transacciones registradas sin conexión se persisten en IndexedDB y se reconcilian automáticamente con el servidor al restablecerse la red, sin duplicados ni pérdida de datos.
+                </p>
+
+                <figure class="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-card-soft">
+                    <figcaption class="px-5 py-3 bg-slate-950 text-brand-400 text-xs font-bold uppercase tracking-wider">Diagrama de flujo · Sincronización de datos</figcaption>
+                    <div class="p-5 sm:p-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 items-stretch text-center">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">1 · Dispositivo</p>
+                                <p class="text-xs text-slate-600 leading-snug">El usuario registra datos en campo</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">2 · IndexedDB</p>
+                                <p class="text-xs text-slate-600 leading-snug">Persistencia local inmediata</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">3 · Cola de Sync</p>
+                                <p class="text-xs text-slate-600 leading-snug">Reintento automático al volver la red</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200">
+                                <p class="text-[11px] font-black uppercase text-brand-600 mb-1">4 · API + DB</p>
+                                <p class="text-xs text-slate-600 leading-snug">Resolución atómica en el servidor</p>
+                            </div>
+                        </div>
+                        <p class="flex items-center justify-center gap-2 text-xs font-bold text-slate-500 mt-5">
+                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-circle-check"/></svg>
+                            Estrategia de reconciliación basada en sellos temporales (timestamps) e IDs idempotentes
+                        </p>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Características clave -->
+        <section class="py-14 lg:py-24 bg-slate-50" aria-labelledby="features-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">05 · Resultado</p>
+                    <h2 id="features-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Características Clave Destacadas</h2>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-100 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-gears"/></svg>
+                            </div>
+                            <h3 class="font-black text-base text-slate-900">Sincronización Offline-First</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">Los usuarios registran transacciones u datos operativos sin conexión; se sincronizan automáticamente con el servidor al restablecerse la red.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-100 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-credit-card"/></svg>
+                            </div>
+                            <h3 class="font-black text-base text-slate-900">Multi-moneda y Tasas de Cambio</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">Módulos integrados para cálculo automático de conversiones en tiempo real entre múltiples monedas.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-brand-400 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-100 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-chart-line"/></svg>
+                            </div>
+                            <h3 class="font-black text-base text-slate-900">Paneles de Control Dinámicos</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">Dashboards interactivos con métricas financieras y operativas mediante componentes livianos y responsivos.</p>
+                    </div>
+                </div>
+
+                <!-- Galería de mockups -->
+                <div class="grid sm:grid-cols-2 gap-5 mt-10">
+                    <figure class="rounded-2xl overflow-hidden border border-slate-200 bg-white group">
+                        <div class="aspect-video bg-slate-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=75&amp;w=800&amp;fm=webp&amp;fit=crop"
+                                 width="800" height="450"
+                                 alt="Wireframe de alta fidelidad del panel de métricas financieras del SaaS"
+                                 loading="lazy" decoding="async"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <figcaption class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">Mockup · Dashboard Financiero</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden border border-slate-200 bg-white group">
+                        <div class="aspect-video bg-slate-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=75&amp;w=800&amp;fm=webp&amp;fit=crop"
+                                 width="800" height="450"
+                                 alt="Prototipo de flujo de registro de operaciones con y sin conexión"
+                                 loading="lazy" decoding="async"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <figcaption class="px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">Wireframe · Flujo de Registro Offline</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo próximamente -->
+        <section class="py-14 lg:py-20 bg-white border-t border-slate-200" aria-labelledby="demo-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-300 mb-5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-bolt"/></svg>
+                    Proyecto Demo en desarrollo
+                </p>
+                <h2 id="demo-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-4">¿Quieres ver la demo interactiva?</h2>
+                <p class="text-slate-600 text-lg mb-8">El entorno en vivo de esta plataforma se está preparando. Mientras tanto, puedes revisar el caso completo o pedir una demo privada del sistema.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/contacto?type=software" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 text-slate-950 font-extrabold text-sm hover:bg-brand-600 transition-colors">
+                        <span>Solicitar demo privada</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-14 lg:py-20 bg-slate-950 text-white" aria-labelledby="cta-title">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <h2 id="cta-title" class="text-3xl sm:text-4xl font-black">¿Necesitas una Plataforma SaaS como esta?</h2>
+                <p class="text-slate-400 text-lg">Cuéntanos tu idea y te mostramos el plan arquitectónico, el stack recomendado y el presupuesto en menos de 24 horas.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/cotizador?type=saas" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-amber-400 text-slate-950 font-black shadow-glow hover:shadow-2xl transition-all">
+                        <span>Cotizar mi Plataforma SaaS</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-arrow-right"/></svg>
+                    </a>
+                    <a href="/portafolio" class="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-slate-700 text-slate-300 hover:border-brand-500 hover:text-white font-bold text-sm transition-colors">
+                        <span>Ver todo el portafolio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- @include partials/footer.html -->
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
