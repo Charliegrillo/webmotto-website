@@ -170,6 +170,46 @@
                         </div>
 
                     </form>
+
+                    <!-- Envío de la cotización por email -->
+                    <form id="quote-form" class="contact-form mt-6 pt-6 border-t border-slate-200 space-y-4" data-success="¡Cotización enviada! Te responderemos con la propuesta en menos de 24 horas." novalidate>
+                        <input type="hidden" name="source" value="Cotizador Web (/cotizador)">
+                        <input type="hidden" name="project_type" id="q-type" value="Landing Page">
+                        <input type="hidden" name="extras" id="q-extras" value="">
+                        <input type="hidden" name="total" id="q-total" value="$450 USD">
+                        <input type="hidden" name="summary" id="q-summary" value="">
+                        <input type="text" name="website" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="q-name" class="block text-xs font-bold text-slate-700 uppercase mb-2">Nombre Completo</label>
+                                <input type="text" id="q-name" name="name" required autocomplete="name" placeholder="Tu Nombre" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm">
+                            </div>
+                            <div>
+                                <label for="q-email" class="block text-xs font-bold text-slate-700 uppercase mb-2">Email Empresarial</label>
+                                <input type="email" id="q-email" name="email" required autocomplete="email" placeholder="correo@empresa.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="q-message" class="block text-xs font-bold text-slate-700 uppercase mb-2">Detalles adicionales (opcional)</label>
+                            <textarea id="q-message" name="message" rows="3" placeholder="Fechas deseadas, referencias de estilo, integraciones que necesitas..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-sm shadow-glow transition-all flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-paper-plane"/></svg>
+                            <span>Enviar Cotización por Email</span>
+                        </button>
+
+                        <div class="form-message form-message-ok hidden p-4 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-bold text-center" role="status" aria-live="polite">
+                            <svg class="w-4 h-4 inline-block mr-1 -mt-0.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="/icons/sprite.svg#icon-circle-check"/></svg>
+                            <span data-form-msg-text>¡Cotización enviada! Te responderemos en menos de 24 horas.</span>
+                        </div>
+
+                        <div class="form-message form-message-error hidden p-4 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-sm font-bold text-center" role="alert">
+                            <span data-form-msg-text>No se pudo enviar la cotización. Inténtalo de nuevo.</span>
+                        </div>
+                    </form>
                 </div>
 
             </div>

@@ -243,7 +243,10 @@ function initCalculator() {
       if (e.checked) total += parseInt(e.value, 10) || 0;
     });
     output.textContent = `$${total.toLocaleString('en-US')} USD`;
+    syncQuoteFields(total);
   };
+
+  window.addEventListener('calc:sync', update);
 
   const typeIndex = { landing: 0, website: 1, ecommerce: 2, mobile: 3, saas: 4 };
 
@@ -269,18 +272,126 @@ function initCalculator() {
   update();
 }
 
-/* Formularios de contacto (demo sin backend) */
+/* Sincroniza los campos ocultos del formulario de envío de cotización */
+function syncQuoteFields(total) {
+  const typeEl = document.getElementById('q-type');
+  const extrasEl = document.getElementById('q-extras');
+  const totalEl = document.getElementById('q-total');
+  const summaryEl = document.getElementById('q-summary');
+  if (!typeEl || !extrasEl || !totalEl || !summaryEl) return;
+
+  const checked = document.querySelector('input[name="project_type"]:checked');
+  const typeName =
+    checked?.closest('label')?.querySelector('span.font-bold')?.textContent.trim() || 'Landing Page';
+  const extras = [...document.querySelectorAll('.calc-extra:checked')]
+    .map((e) => (e.closest('label')?.textContent || '').replace(/\s*\(\+\$\d+\)/g, '').trim())
+    .filter(Boolean);
+  const totalText = `$${Number(total).toLocaleString('en-US')} USD`;
+
+  typeEl.value = typeName;
+  extrasEl.value = extras.join(', ');
+  totalEl.value = totalText;
+  summaryEl.value =
+    `Cotización solicitada desde el cotizador web.\n` +
+    `Proyecto: ${typeName}.\n` +
+    `Extras: ${extras.length ? extras.join(', ') : 'ninguno'}.\n` +
+    `Inversión estimada: ${totalText}.`;
+}
+
+/* Envío real de formularios vía Netlify Function (/.netlify/functions/send-email) */
 function initContactForms() {
   document.querySelectorAll('.contact-form').forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    const endpoint = form.dataset.endpoint || '/.netlify/functions/send-email';
+    const okMsg = form.querySelector('.form-message-ok');
+    const errMsg = form.querySelector('.form-message-error');
+    const btn = form.querySelector('button[type="submit"]');
+    const btnLabel = btn?.querySelector('span')?.textContent || '';
+    let hideTimer;
+
+    const hideMessages = () => {
+      okMsg?.classList.add('hidden');
+      errMsg?.classList.add('hidden');
+    };
+    const setText = (box, text) => {
+      const el = box?.querySelector('[data-form-msg-text]');
+      if (el && text) el.textContent = text;
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const msg = form.querySelector('.form-message');
-      if (msg) {
-        msg.classList.remove('hidden');
-        form.reset();
-        setTimeout(() => msg.classList.add('hidden'), 5000);
+      if (btn?.disabled) return;
+      hideMessages();
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (data.summary) {
+        const extra = String(data.message || '').trim();
+        data.message = extra ? `${data.summary}\n\n${extra}` : data.summary;
+        delete data.summary;
       }
+
+      const valid = String(data.name || '').trim() && String(data.email || '').trim() && String(data.message || '').trim();
+      if (!valid) {
+        setText(errMsg, 'Completa nombre, correo y mensaje para continuar.');
+        errMsg?.classList.remove('hidden');
+        return;
+      }
+
+      if (btn) {
+        btn.disabled = true;
+        btn.classList.add('opacity-70', 'cursor-wait');
+        const label = btn.querySelector('span');
+        if (label) label.textContent = 'Enviando…';
+      }
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json().catch(() => ({}));
+
+        if (res.ok && result.success !== false) {
+          setText(okMsg, form.dataset.success);
+          okMsg?.classList.remove('hidden');
+          form.reset();
+          syncProjectDropdown(form);
+          window.dispatchEvent(new Event('calc:sync'));
+        } else {
+          setText(errMsg, typeof result.error === 'string' ? result.error : undefined);
+          errMsg?.classList.remove('hidden');
+        }
+      } catch (err) {
+        setText(errMsg, 'Hubo un error de conexión. Inténtalo de nuevo.');
+        errMsg?.classList.remove('hidden');
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.classList.remove('opacity-70', 'cursor-wait');
+          const label = btn.querySelector('span');
+          if (label && btnLabel) label.textContent = btnLabel;
+        }
+      }
+
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideMessages, 8000);
     });
+  });
+}
+
+/* Restaura el dropdown "Tipo de Proyecto" tras resetear el formulario */
+function syncProjectDropdown(form) {
+  const root = form.querySelector('[data-project-dropdown]');
+  if (!root) return;
+  const hidden = root.querySelector('input[type="hidden"][name="project_type"]');
+  const valueEl = root.querySelector('.cf-type-value');
+  const value = root.dataset.typeDefault || hidden?.value || 'Landing Page';
+  if (hidden) hidden.value = value;
+  if (valueEl) valueEl.textContent = value;
+  root.querySelectorAll('.cf-type-option').forEach((opt) => {
+    const active = opt.dataset.value === value;
+    opt.setAttribute('aria-selected', String(active));
+    opt.querySelector('.cf-type-check')?.classList.toggle('hidden', !active);
   });
 }
 
@@ -296,6 +407,7 @@ function initProjectTypeDropdown() {
     const options = [...root.querySelectorAll('.cf-type-option')];
     const closeBtn = root.querySelector('.cf-type-close');
     if (!btn || !list) return;
+    if (hidden && !root.dataset.typeDefault) root.dataset.typeDefault = hidden.value;
 
     const setOpen = (open) => {
       if (open && window.innerWidth < 640) {
