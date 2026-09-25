@@ -15,13 +15,65 @@ const escapeHtml = (value) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
+/* ---- Anti-spam: límite de tasa por IP (en memoria, mejor esfuerzo) ---- */
+const RATE_LIMIT = { max: 3, windowMs: 10 * 60 * 1000 };
+const hits = new Map();
+
+const getClientIp = (req) => {
+  const netlify = req.headers.get('x-nf-client-connection-ip');
+  if (netlify) return netlify;
+  const forwarded = req.headers.get('x-forwarded-for');
+  if (forwarded) return forwarded.split(',')[0].trim();
+  return 'unknown';
+};
+
+const isRateLimited = (ip) => {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < RATE_LIMIT.windowMs);
+  if (recent.length >= RATE_LIMIT.max) {
+    hits.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 2000) {
+    for (const [key, list] of hits) {
+      if (!list.some((t) => now - t < RATE_LIMIT.windowMs)) hits.delete(key);
+    }
+  }
+  return false;
+};
+
+/* ---- Límites de longitud ---- */
+const LIMITS = {
+  name: 150,
+  email: 254,
+  message: 5000,
+  phone: 60,
+  project_type: 120,
+  source: 120,
+  total: 60,
+  extras: 500,
+};
+
 export default async (req) => {
   if (req.method !== 'POST') {
     return json({ error: 'Método no permitido' }, 405);
   }
 
   try {
-    const body = await req.json();
+    const ip = getClientIp(req);
+    if (isRateLimited(ip)) {
+      return json({ error: 'Demasiados envíos. Espera unos minutos y vuelve a intentarlo.' }, 429);
+    }
+
+    let body;
+    try {
+      body = await req.json();
+    } catch (err) {
+      return json({ error: 'Solicitud no válida.' }, 400);
+    }
+
     const {
       name = '',
       email = '',
@@ -32,10 +84,59 @@ export default async (req) => {
       total = '',
       extras = '',
       website = '',
+      t = '',
+      'cf-turnstile-response': turnstileToken = '',
     } = body || {};
 
     // Honeypot: si el campo oculto viene relleno, es un bot → éxito sin enviar
     if (website) return json({ success: true });
+
+    // Timestamp de carga del formulario: exige al menos 3 s y máximo 24 h de antigüedad
+    const stamp = Number(t);
+    if (!Number.isFinite(stamp) || !stamp) {
+      return json({ error: 'Formulario caducado. Recarga la página e inténtalo de nuevo.' }, 400);
+    }
+    const age = Date.now() - stamp;
+    if (age < 3000) {
+      return json({ error: 'Envío demasiado rápido. Espera unos segundos e inténtalo de nuevo.' }, 400);
+    }
+    if (age > 24 * 60 * 60 * 1000) {
+      return json({ error: 'Formulario caducado. Recarga la página e inténtalo de nuevo.' }, 400);
+    }
+
+    // Cloudflare Turnstile: verifica el token con la secret key del entorno
+    if (!turnstileToken) {
+      return json({ error: 'Verificación de seguridad no completada. Recarga la página.' }, 400);
+    }
+    if (!process.env.TURNSTILE_SECRET_KEY) {
+      return json({ error: 'Configuración de seguridad pendiente (TURNSTILE_SECRET_KEY).' }, 500);
+    }
+    let turnstileOk = false;
+    try {
+      const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          secret: process.env.TURNSTILE_SECRET_KEY,
+          response: turnstileToken,
+          remoteip: ip,
+        }),
+      });
+      const verify = await verifyRes.json();
+      turnstileOk = Boolean(verify && verify.success);
+    } catch (err) {
+      turnstileOk = false;
+    }
+    if (!turnstileOk) {
+      return json({ error: 'La verificación de seguridad ha fallado. Inténtalo de nuevo.' }, 403);
+    }
+
+    const fields = { name, email, message, phone, project_type, source, total, extras };
+    for (const [key, value] of Object.entries(fields)) {
+      if (typeof value === 'string' && value.length > LIMITS[key]) {
+        return json({ error: `El campo "${key}" exige el máximo de ${LIMITS[key]} caracteres.` }, 400);
+      }
+    }
 
     if (!name.trim() || !email.trim() || !message.trim()) {
       return json({ error: 'Faltan campos obligatorios (nombre, correo y mensaje).' }, 400);

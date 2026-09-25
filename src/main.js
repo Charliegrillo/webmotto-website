@@ -306,6 +306,11 @@ function initContactForms() {
     const errMsg = form.querySelector('.form-message-error');
     const btn = form.querySelector('button[type="submit"]');
     const btnLabel = btn?.querySelector('span')?.textContent || '';
+    const stamp = form.querySelector('input[name="t"]');
+    const restamp = () => {
+      if (stamp) stamp.value = String(Date.now());
+    };
+    restamp();
     let hideTimer;
 
     const hideMessages = () => {
@@ -327,6 +332,20 @@ function initContactForms() {
         const extra = String(data.message || '').trim();
         data.message = extra ? `${data.summary}\n\n${extra}` : data.summary;
         delete data.summary;
+      }
+
+      const widget = form.querySelector('.cf-turnstile');
+      if (widget) {
+        const token =
+          (window.turnstile && typeof window.turnstile.getResponse === 'function'
+            ? window.turnstile.getResponse(widget)
+            : '') || '';
+        if (!token) {
+          setText(errMsg, 'Espera a que se complete la verificación de seguridad.');
+          errMsg?.classList.remove('hidden');
+          return;
+        }
+        data['cf-turnstile-response'] = token;
       }
 
       const valid = String(data.name || '').trim() && String(data.email || '').trim() && String(data.message || '').trim();
@@ -355,6 +374,7 @@ function initContactForms() {
           setText(okMsg, form.dataset.success);
           okMsg?.classList.remove('hidden');
           form.reset();
+          restamp();
           syncProjectDropdown(form);
           window.dispatchEvent(new Event('calc:sync'));
         } else {

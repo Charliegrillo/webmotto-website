@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="/src/style.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-slate-950 overflow-x-hidden">
 
@@ -178,7 +179,9 @@
                         <input type="hidden" name="extras" id="q-extras" value="">
                         <input type="hidden" name="total" id="q-total" value="$450 USD">
                         <input type="hidden" name="summary" id="q-summary" value="">
+                        <input type="hidden" name="t" value="">
                         <input type="text" name="website" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+                        <div class="cf-turnstile flex justify-center" data-sitekey="0x4AAAAAAFC-Y_vySJBp3ihE" data-action="cotizador"></div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
