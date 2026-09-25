@@ -192,17 +192,17 @@ function renderPagination(totalPages) {
 
   if (state.page > totalPages) state.page = totalPages;
 
-  const pageBtn = (n, label = String(n), attrs = '') => `
+  const pageBtn = (n, label = String(n), attrs = '', nav = false) => `
     <button type="button" ${attrs} data-page="${n}" class="min-w-10 h-10 px-3 rounded-xl font-bold text-sm transition-all ${
-      n === state.page
+      n === state.page && !nav
         ? 'bg-brand-500 text-slate-950 shadow-glow'
-        : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-    }" ${n === state.page ? 'aria-current="page"' : ''}>${label}</button>`;
+        : `bg-slate-200 text-slate-700 hover:bg-slate-300${nav && attrs.includes('disabled') ? ' opacity-40 cursor-not-allowed' : ''}`
+    }" ${n === state.page && !nav ? 'aria-current="page"' : ''}>${label}</button>`;
 
   const chevronLeft = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>';
   const chevronRight = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
 
-  let html = pageBtn(Math.max(1, state.page - 1), chevronLeft, `aria-label="Página anterior" ${state.page === 1 ? 'disabled' : ''}`);
+  let html = pageBtn(Math.max(1, state.page - 1), chevronLeft, `aria-label="Página anterior" ${state.page === 1 ? 'disabled' : ''}`, true);
   html += pageBtn(1);
   if (state.page > 3) html += `<span class="px-1 text-slate-400 font-bold" aria-hidden="true">…</span>`;
   for (let n = Math.max(2, state.page - 1); n <= Math.min(totalPages - 1, state.page + 1); n++) {
@@ -210,7 +210,7 @@ function renderPagination(totalPages) {
   }
   if (state.page < totalPages - 2) html += `<span class="px-1 text-slate-400 font-bold" aria-hidden="true">…</span>`;
   if (totalPages > 1) html += pageBtn(totalPages);
-  html += pageBtn(Math.min(totalPages, state.page + 1), chevronRight, `aria-label="Página siguiente" ${state.page >= totalPages ? 'disabled' : ''}`);
+  html += pageBtn(Math.min(totalPages, state.page + 1), chevronRight, `aria-label="Página siguiente" ${state.page >= totalPages ? 'disabled' : ''}`, true);
 
   els.pagination.innerHTML = html;
   els.pagination.querySelectorAll('[data-page]').forEach((btn) => {
