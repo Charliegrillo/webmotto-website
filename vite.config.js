@@ -162,9 +162,25 @@ function cleanUrls() {
   };
 }
 
+/**
+ * Escribe dist/_redirects con las rutas legacy (REDIRECTS) para que
+ * Netlify aplique los 301 en producción (antes solo existían en dev/preview).
+ */
+function netlifyRedirects() {
+  const body = Object.entries(REDIRECTS)
+    .map(([from, to]) => `/${from} ${to} 301`)
+    .join('\n');
+  return {
+    name: 'netlify-redirects',
+    closeBundle() {
+      fs.writeFileSync(path.join(root, 'dist', '_redirects'), `${body}\n`, 'utf8');
+    },
+  };
+}
+
 export default defineConfig({
   base: '/',
-  plugins: [htmlPartials(), cleanUrls(), tailwindcss()],
+  plugins: [htmlPartials(), cleanUrls(), netlifyRedirects(), tailwindcss()],
   server: {
     allowedHosts: ['crown-bush-pig-possible.trycloudflare.com'],
   },
